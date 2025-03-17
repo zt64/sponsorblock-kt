@@ -101,8 +101,8 @@ class KmpConfigurationPlugin : Plugin<Project> {
 
                 licenses {
                     license {
-                        name = "GPL v3.0"
-                        url = "https://www.gnu.org/licenses/gpl-3.0.html"
+                        name = "MIT License"
+                        url = "https://opensource.org/licenses/MIT"
                     }
                 }
 

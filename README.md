@@ -61,7 +61,7 @@ userClient.upvoteSegment(segmentUuid, videoId)
 
 ## License
 
-This project is licensed under the [GPL v3.0](LICENSE) license.
+This project is licensed under the [MIT License](LICENSE).
 
 [badge-platform-jvm]: http://img.shields.io/badge/-jvm-DB413D.svg?style=flat
 

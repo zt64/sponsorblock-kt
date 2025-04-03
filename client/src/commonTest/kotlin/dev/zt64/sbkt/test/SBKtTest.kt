@@ -19,12 +19,6 @@ class SBKtTest {
         println(guestClient.getServerStatus())
     }
 
-    // API takes way too long and causes test to fail because of timeout
-    @Test
-    fun testTotalDurationSaved() = runTest {
-        guestClient.getTotalDurationSaved()
-    }
-
     @Test
     fun testSkipSegments() = runTest {
         VIDEO_IDS.forEach {

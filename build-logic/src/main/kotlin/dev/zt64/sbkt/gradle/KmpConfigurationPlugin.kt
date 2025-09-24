@@ -17,7 +17,7 @@ import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import java.util.*
 
 @Suppress("unused")
-private fun <T> Property<T>.assign(value: T) = set(value)
+private fun <T : Any> Property<T>.assign(value: T) = set(value)
 
 private val Project.libs
     get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")

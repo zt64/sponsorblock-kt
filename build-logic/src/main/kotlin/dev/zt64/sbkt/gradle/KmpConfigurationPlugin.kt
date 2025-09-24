@@ -1,7 +1,6 @@
 package dev.zt64.sbkt.gradle
 
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
-import com.vanniktech.maven.publish.SonatypeHost
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
@@ -81,7 +80,7 @@ class KmpConfigurationPlugin : Plugin<Project> {
 
         target.extensions.configure<MavenPublishBaseExtension> {
             coordinates(target.group.toString(), target.name, target.version.toString())
-            publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
+            publishToMavenCentral()
             signAllPublications()
 
             val path = "zt64/sponsorblock-kt"

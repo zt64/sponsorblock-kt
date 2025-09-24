@@ -13,7 +13,6 @@ import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.targets.js.dsl.KotlinJsSubTargetDsl
-import org.jetbrains.kotlin.gradle.targets.js.dsl.KotlinJsTargetDsl
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import java.util.*
 
@@ -39,30 +38,24 @@ class KmpConfigurationPlugin : Plugin<Project> {
 
             jvm()
 
-            fun KotlinJsTargetDsl.configureSubTargets() {
-                fun KotlinJsSubTargetDsl.extendTimeout() {
-                    testTask {
-                        useMocha {
-                            timeout = "10s"
+            listOf(js(), wasmJs()).forEach {
+                it.apply {
+                    fun KotlinJsSubTargetDsl.extendTimeout() {
+                        testTask {
+                            useMocha {
+                                timeout = "10s"
+                            }
                         }
                     }
+
+                    nodejs {
+                        extendTimeout()
+                    }
+
+                    browser {
+                        extendTimeout()
+                    }
                 }
-
-                nodejs {
-                    extendTimeout()
-                }
-
-                browser {
-                    extendTimeout()
-                }
-            }
-
-            js {
-                configureSubTargets()
-            }
-
-            wasmJs {
-                configureSubTargets()
             }
 
             linuxArm64()
